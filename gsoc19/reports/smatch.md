@@ -83,6 +83,10 @@ $ ./smatch -p=kernel --spammy smatch_context_check.c
 smatch_context_check.c:29 bad_if() warn: 'spin_lock:j' is sometimes locked here and sometimes unlocked.
 ```
 
+More test cases can be found at `sm_locking*.c`:
+https://repo.or.cz/smatch.git/blob/HEAD:/validation/sm_locking.c
+
+
 ## Limitation
 
 * Unable to differentiate between locks as observed in `bad_difflocks` above.

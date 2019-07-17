@@ -140,6 +140,10 @@ sparse_context_check.c:30:13: warning: context imbalance in 'bad_onlyunlock' - u
 sparse_context_check.c:35:13: warning: context imbalance in 'bad_onlylock' - wrong count at exit
 ```
 
+More test cases can be found at:
+https://git.kernel.org/pub/scm/devel/sparse/sparse.git/tree/validation/context.c
+
+
 ## Limitations
 
 * Analysis fails to distinguish between different locks as observed in
