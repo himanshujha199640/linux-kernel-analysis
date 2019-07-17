@@ -98,3 +98,9 @@ understand about such a condition.
 8. Aliasing: It is already mentioned as a limitation of the analysis in documentation. We
 found many of them and there is exist no workaround to handle those warnings.
 * https://github.com/ClangBuiltLinux/thread-safety-analysis/issues/108
+
+## Resources
+
+* https://clang.llvm.org/docs/ThreadSafetyAnalysis.html
+* https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42958.pdf
+* https://insights.sei.cmu.edu/sei_blog/2014/10/thread-safety-analysis-in-c-and-c.html

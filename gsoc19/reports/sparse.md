@@ -149,3 +149,10 @@ sparse_context_check.c:35:13: warning: context imbalance in 'bad_onlylock' - wro
 * Even if we omit the argument passed to the annotations, there is no
   effect on the analysis i.e., tool simply doesn't care about the
   lock variable passed as the argument.
+
+## Resources
+
+* https://www.kernel.org/doc/html/latest/dev-tools/sparse.html
+* https://lwn.net/Articles/689907/
+* https://git.kernel.org/pub/scm/devel/sparse/sparse.git/tree/
+* https://lwn.net/Articles/109066/

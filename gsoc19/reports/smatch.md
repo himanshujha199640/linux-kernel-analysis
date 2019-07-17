@@ -87,3 +87,8 @@ smatch_context_check.c:29 bad_if() warn: 'spin_lock:j' is sometimes locked here 
 
 * Unable to differentiate between locks as observed in `bad_difflocks` above.
 * Doesn't warn about cases where only either locking or unlocking takes place.
+
+## Resources
+
+* https://repo.or.cz/smatch.git/blob/HEAD:/check_locking.c
+* https://lwn.net/Articles/691882/
