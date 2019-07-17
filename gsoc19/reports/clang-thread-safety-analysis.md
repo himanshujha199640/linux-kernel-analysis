@@ -7,7 +7,7 @@ so caller requirements must be explicitly declared.
 
 https://clang.llvm.org/docs/ThreadSafetyAnalysis.html
 
-# Running the analysis
+## Running the analysis
 
 To run the analysis, we need to pass `-Wthread-safety` flag:
 
@@ -22,7 +22,7 @@ using `CFLAGS_KERNEL`:
 make CC=clang HOSTCC=clang CFLAGS_KERNEL="-Wthread-safety"
 ```
 
-# Problems encountered during the investigation
+## Problems encountered during the investigation
 
 I started annotating the kernel source code in `allnoconfig` to
 have fewer warnings and eventually moving to `defconfig`.
