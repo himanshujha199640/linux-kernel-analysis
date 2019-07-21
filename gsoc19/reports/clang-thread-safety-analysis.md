@@ -158,6 +158,7 @@ understand about such a condition.
 
 8. Aliasing: It is already mentioned as a limitation of the analysis in documentation. We
 found many of them and there is exist no workaround to handle those warnings.
+* https://github.com/ClangBuiltLinux/thread-safety-analysis/issues/104
 * https://github.com/ClangBuiltLinux/thread-safety-analysis/issues/108
 
 ## Resources
