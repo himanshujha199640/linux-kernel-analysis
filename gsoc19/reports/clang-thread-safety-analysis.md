@@ -27,8 +27,12 @@ make CC=clang HOSTCC=clang CFLAGS_KERNEL="-Wthread-safety"
 Initially we started with `allnoconfig` targeting a relatively small
 codebase annotating **only** `spin_lock()` and `spin_unlock()`.
 
-Issues: https://github.com/ClangBuiltLinux/thread-safety-analysis/issues
-Commits: https://github.com/ClangBuiltLinux/thread-safety-analysis/commits/clang-thread-safety-analysis-spinlock
+Issues: 
+https://github.com/ClangBuiltLinux/thread-safety-analysis/issues
+
+Commits:
+https://github.com/ClangBuiltLinux/thread-safety-analysis/commits/clang-thread-safety-analysis-spinlock
+
 
 ```
 $ grep 'warning' ~/build/logs/clang-analysis-allnoconfig-spinlock.txt | wc -l
