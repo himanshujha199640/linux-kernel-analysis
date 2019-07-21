@@ -22,10 +22,67 @@ using `CFLAGS_KERNEL`:
 make CC=clang HOSTCC=clang CFLAGS_KERNEL="-Wthread-safety"
 ```
 
+## Statistics
+
+Initially we started with `allnoconfig` targeting a relatively small
+codebase annotating **only** `spin_lock()` and `spin_unlock()`.
+
+Issues: https://github.com/ClangBuiltLinux/thread-safety-analysis/issues
+Commits: https://github.com/ClangBuiltLinux/thread-safety-analysis/commits/clang-thread-safety-analysis-spinlock
+
+```
+$ grep 'warning' ~/build/logs/clang-analysis-allnoconfig-spinlock.txt | wc -l
+1218
+```
+
+And after annotation at some point:
+
+```
+$ grep 'warning' ~/build/logs/clang-analysis-allnoconfig-spinlock-1-morning.txt | wc -l
+268
+```
+
+Now, most of the these warnings were one of those mentioned in the next section.
+Therefore, it was decided to move on to `defconfig` to find new set of warnings
+or bug classes.
+
+```
+$ grep 'warning' ~/build/logs/clang-analysis-defconfig-spinlock.txt | wc -l
+26106
+```
+
+Most of them were bogus repeated warnings from common header files creating such a
+huge noise in the report.
+
+After annotating at some point we reached:
+
+```
+$ grep 'warning' ~/build/logs/clang-analysis-defconfig-spinlock-20July.txt | wc -l
+370
+```
+
+At this we have the following statistics of annotations:
+
+```
+$ git grep -w '__acquires_spinlock' | wc -l
+17
+$ git grep -w '__releases_spinlock' | wc -l
+26
+$ git grep -w '__conditional_locking' | wc -l
+16
+$ git grep -w '__conditional_unlocking' | wc -l
+24
+$ git grep -w '__no_thread_safety_analysis' | wc -l
+67
+$ git grep -w '__try_acquires_spinlock' | wc -l
+6
+```
+
+Note that both `__conditional_locking` & `__conditional_unlocking` actually expand
+to `__no_thread_safety_analysis`.
+
 ## Problems encountered during the investigation
 
-I started annotating the kernel source code in `allnoconfig` to
-have fewer warnings and eventually moving to `defconfig`.
 
 1. Lexical scoping: Annotating functions requires the lock instance to
 be passed as an argument to the clang annotation. Now this locks instance(variable)
